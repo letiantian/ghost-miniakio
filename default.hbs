@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    {{#is "post, page"}}
+    <title>{{meta_title}} - {{@blog.title}}</title>
+    {{/is}}
+    {{#is "home"}}
+    <title>{{meta_title}}</title>
+    <meta name="description" content="计算机技术博客，关注web、云计算、机器学习等。" />
+    {{/is}}
+    {{#is "paged"}}
+    <title>{{meta_title}} {{page}}</title>
+    <meta name="description" content="计算机技术博客，关注web、云计算、机器学习等。" />
+    {{/is}}
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="author" content="樂天">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <link rel="shortcut icon" href="{{asset "image/favicon.ico"}}">
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link href="{{asset "style/screen.css"}}" rel="stylesheet" type="text/css" media="all">
+    {{#is "post, page"}}
+    <!-- highlight -->
+    <link rel="stylesheet" href="{{asset "js/highlight/styles/github.css"}}">
+    {{/is}}
+  </head>
+
+  <body>
+    <img class='bg-image' src="{{@blog.cover}}" />
+    <header id="header" class="clearfix header-fixed-top">
+      <div class="nav">
+        <h1><a href="/">{{@blog.title}}</a></h1>
+        <ul>
+          <li><a href="/topics">专题</a></li>
+          <li><a href="/all-tags">标签</a></li>
+          <li><a href="/blogroll">友链</a></li>
+          <li><a href="/search">搜索</a></li>
+          <li><a href="/about">关于</a></li>
+        </ul>
+      </div>
+    </header>
+
+    {{{body}}}
+
+    {{#is "post, page"}}
+      {{>jquery}}
+      {{>mathjax}}
+      {{>github-repo-show-widget}}
+      {{! highlight}}
+      <script src="{{asset "js/highlight/highlight.min.js"}}"></script>
+      <script src="{{asset "js/awesome-toc.min.js"}}"></script>
+      <script>
+        // 高亮
+        hljs.initHighlightingOnLoad();
+        // 在图片下方显示alt的内容
+        $("img").each(function(i, ele) {
+          var alt = this.alt;
+          $(this).after("<em>"+alt+"</em>");
+        });
+        
+        // toc
+        $(document).ready(function(){
+            $.awesome_toc({        
+              autoDetectHeadings: true,
+              enableToTopButton: true,
+              contentClass: "article-content",
+              css: {
+                  fontSize: "99%",
+                  largeFontSize: "120%",
+                  fontColor: '#000',  
+                  activeFontColor: "#5882FA", 
+                  lineHeight: "1.8",
+                  backgroundColor: "white",
+              },
+            });
+        });
+      </script>
+    {{/is}}
+
+  </body>
+</html>

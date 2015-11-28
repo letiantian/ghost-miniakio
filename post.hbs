@@ -1,0 +1,35 @@
+{{!< default}}
+
+
+{{#post}}
+<div id="container">
+    <div id="main" class="clearfix">
+        <div class="content clearfix">
+            <article>
+                <h2 class="title">
+                    <a href="{{url}}">{{title}}</a>
+                </h2>
+                <div class="tag-list">
+                <span class="post-id" style="display:none">{{id}}</span>
+                {{#is "post"}}
+                    {{date format="MMMM Do YYYY"}} {{tags prefix=" | Tags:"}}
+                {{/is}}
+                </div>
+                <div class="article-content">
+                    {{content}}
+                </div>
+            </article>
+            <!-- comment-->
+            <hr/>
+            {{> comment-disqus }}
+        </div>
+
+    </div>
+
+    <footer id="footer" class="top-box clearfix">
+    &copy; {{@blog.title}} 2015  | The theme is based on<a href="https://github.com/SerhoLiu/serholiu.com" target="_blank"> MiniAkio</a>.
+    <a href="javascript:scroll(0,0)" class="to-top">TOP</a>
+      
+    </footer>
+</div>
+{{/post}}

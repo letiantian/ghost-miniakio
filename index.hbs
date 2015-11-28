@@ -1,0 +1,30 @@
+{{!< default}}
+
+<div id="home-container">
+  <div class="curtain">
+    <!--
+    <div class="avater">
+      <img src="{{@blog.logo}}"/>
+    </div>
+    -->
+    {{#is "index"}}
+    <h2>Recent Post</h2>
+    {{/is}}
+    {{#is "tag"}}
+    <h2>Tag: {{#tag}}{{ name }}{{/tag}}</h2>
+    {{/is}}
+    <ul class="home-list">
+      {{#foreach posts}}
+          <li>
+            <span>{{date format="MMM DD"}}</span> &raquo; 
+            <a href="{{url}}">{{title}}</a>
+          </li>
+      {{/foreach}}
+      {{pagination}}
+    </ul>
+    <div class="footer">
+      &copy; {{@blog.title}} 2015  | 
+      The theme is based on<a href="https://github.com/SerhoLiu/serholiu.com" target="_blank" style="color: #a33b14;"> MiniAkio</a>.
+    </div>
+  </div>
+</div>
