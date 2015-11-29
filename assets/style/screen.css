@@ -74,6 +74,11 @@ option {
   vertical-align: baseline;
 }
 
+html, body {
+  height: 100%;
+  min-height: 100%;
+}
+
 body {
   background: #e6ebea fixed center top no-repeat;
   font-size: 13px;
@@ -82,7 +87,7 @@ body {
   /*font-family: "Quantico", "Luxi Sans", "DejaVu Sans", Tahoma, "Hiragino Sans GB", STHeiti, "微软雅黑", sans-serif !important;*/
   font-family: Helvetica,arial,nimbussansl,liberationsans,freesans,clean,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
   color: #555;
-  min-height: 100%;
+
 }
 
 blockquote,
@@ -171,6 +176,8 @@ article h3 {
   padding: 0px 12px;
   color: #000;
 }
+
+
 h2.title {
   color: #777;
   background-color: #FFF;
@@ -462,19 +469,24 @@ p small {
 }
 
 #container {
+  position: relative; /*一定要加，不然#footer的abosulute:position就相对于浏览器了*/
   margin: 0 auto;
   margin-top: 60px;
   width: 720px;
   min-height: 100%;
+  padding-bottom: 30px;
 }
 #main {
   padding: 20px 0;
-  min-height: 400px;
+  position: relative;
+  height: 100%;
   line-height: 1.4em;
+  width: 100%;
 }
 .content {
   background-color: #fff;
   padding: 0 20px 10px;
+  height: 100%;
   border-radius: 5px;
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
@@ -483,12 +495,19 @@ p small {
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
 }
 .content img {
-  max-width: 640px;
+  max-width: 100%;
   height: auto;
   display: block;
   border-radius: 5px;
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
+
+  padding: 12px 10px;
+  background-color: white;
+  box-shadow: 0 1px 3px rgba(34, 25, 25, 0.4);
+  -moz-box-shadow: 0 1px 2px rgba(34,25,25,0.4);
+  -webkit-box-shadow: 0 1px 3px rgba(34, 25, 25, 0.4);
+
 }
 .content article hr {
   display: block;
@@ -528,12 +547,19 @@ p small {
   float: right;
 }
 #footer {
-  position: relative;
+  display: block;
+  /*position: relative;*/
+  position: absolute;
+  bottom: 0;
+  width: 100%;
   background: #fff;
-  padding: 10px 20px;
+  padding: 10px 0;
   -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
   -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+}
+#footer span {
+  padding-left: 20px;
 }
 #footer .to-top {
   position: absolute;
@@ -625,6 +651,7 @@ p small {
 .clearfix {
   zoom: 1;
 }
+
 /*::selection {
   background: #FF5E99;
   color: #fff;
@@ -633,6 +660,7 @@ p small {
   background: #FF5E99;
   color: #fff;
 }*/
+
 @font-face {
   font-family: 'Quantico';
   font-style: normal;
@@ -717,6 +745,7 @@ th {
   #container {
     margin-top: 40px;
     width: 100%;
+    padding-bottom: 0;
   }
   .curtain {
     float: right;
