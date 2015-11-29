@@ -114,11 +114,11 @@ video {
   max-width: 100%;
 }
 a {
-  color: #2F5D90;
+  color: #f95b1f;
   text-decoration: none;
 }
 a:hover {
-  color: #1B4778;
+  color: #a33b14;
 }
 h1,
 h2,
@@ -396,7 +396,7 @@ p small {
   border-bottom: 3px solid #fff;
 }
 #header ul li a:hover {
-  border-bottom: 3px solid #1B4778;
+  border-bottom: 3px solid #b94a48;
 }
 
 #home-container {
@@ -440,7 +440,6 @@ p small {
 }
 .curtain h2 {
   line-height: 30px;
-  margin-left: 5px;
 }
 .curtain ul {
   list-style: none;
@@ -458,7 +457,7 @@ p small {
   border-top: 1px solid #ccc;
 }
 .curtain .footer a {
-  color: #254160;
+  color: rgb(163, 59, 20);
 }
 
 #container {
@@ -543,6 +542,7 @@ p small {
   display: block;
   font-weight: bold;
 }
+
 .posts-list {
   margin: 0px 0px 10px 0px;
   font-size: 15px;
